@@ -8,7 +8,12 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="i雅思">
 <title>i 雅思 · 手机学生端四页签改版</title>
-<link rel="stylesheet" href="app.css">
+<script>
+(function(){var d=document.documentElement,u=navigator.userAgent;
+var mob=/Android|iPhone|iPod|iPad|Mobile|MicroMessenger|HarmonyOS/i.test(u)||(/Macintosh/.test(u)&&navigator.maxTouchPoints>1);
+function f(){d.classList.toggle('h5',mob||innerWidth<=460)}f();addEventListener('resize',f);})();
+</script>
+<link rel="stylesheet" href="app.css?v=3">
 </head>
 <body>
 <div class="stage" aria-hidden="true"></div>
@@ -91,7 +96,7 @@
     </ul>
   </aside>
 </div>
-<script src="data.js"></script>
-<script src="app.js"></script>
+<script src="data.js?v=3"></script>
+<script src="app.js?v=3"></script>
 </body>
 </html>

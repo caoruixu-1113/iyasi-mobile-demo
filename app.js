@@ -665,7 +665,7 @@ $('#demo').addEventListener('click', e => {
 
 /* ---------- 适配缩放 ---------- */
 function scale() { return parseFloat(phone.style.getPropertyValue('--k')) || 1; }
-function fit() { phone.style.setProperty('--k', innerWidth <= 460 ? 1 : Math.min(1, (innerHeight - 48) / 874)); }
+function fit() { phone.style.setProperty('--k', document.documentElement.classList.contains('h5') ? 1 : Math.min(1, (innerHeight - 48) / 874)); }
 addEventListener('resize', fit); fit();
 
 /* ---------- 启动 ---------- */

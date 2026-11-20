@@ -49,13 +49,11 @@ body{font-family:var(--sans);color:var(--ink);background:#EAEFF8;overflow:hidden
 /* ---------- 手机外框 402 × 874 ---------- */
 .phone{position:relative;flex:none;width:402px;height:874px;border-radius:54px;background:var(--bg);overflow:hidden;transform:scale(var(--k,1));
   box-shadow:0 0 0 10px #12161F,0 0 0 11px #2A3040,0 40px 80px -20px rgba(20,40,110,.35);isolation:isolate}
-@media (max-width:460px){
-  body{overflow:auto;background:var(--bg)}
-  .stage{display:none}
-  .layout{display:block;height:auto}
-  .phone{width:100vw;height:100dvh;border-radius:0;box-shadow:none;transform:none}
-  .island{display:none}
-}
+/* 手机 / 微信 / 窄屏：由 index.html 头部脚本给 html 加 .h5 */
+html.h5 body{overflow:hidden;background:var(--bg)}
+html.h5 .stage,html.h5 .side{display:none}
+html.h5 .layout{display:block;height:auto}
+html.h5 .phone{position:fixed;inset:0;width:100%;height:100%;border-radius:0;box-shadow:none;transform:none}
 .status{position:absolute;z-index:80;left:0;right:0;top:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:6px 34px 0 46px;font:600 17px/1 var(--sans);pointer-events:none}
 .island{position:absolute;z-index:81;left:50%;top:11px;width:124px;height:36px;margin-left:-62px;background:#000;border-radius:20px}
 .status .icons{display:flex;gap:6px;align-items:center}
@@ -597,16 +595,14 @@ button:focus-visible{outline:2px solid var(--brand-3);outline-offset:2px}
 }
 
 /* ---------- 手机直接打开：H5 全屏，去掉模拟状态栏，改用系统安全区 ---------- */
-@media (max-width:460px){
-  html,body{overscroll-behavior:none}
-  .phone{--st:env(safe-area-inset-top,0px);--sb:env(safe-area-inset-bottom,0px);height:100vh;height:100dvh}
-  .status,.island{display:none}
-  .wrap{padding-top:calc(var(--st) + 20px)}
-  .topbar,.sub-h{height:calc(var(--st) + 54px);padding-top:var(--st)}
-  .subjbar{top:calc(var(--st) + 54px)}
-  .sub-body{padding-top:calc(var(--st) + 62px)}
-  .view{padding-bottom:calc(var(--sb) + 112px)}
-  .nav{bottom:calc(var(--sb) + 12px)}
-  .actbar{padding-bottom:calc(var(--sb) + 12px)}
-  .sheet{padding-bottom:calc(var(--sb) + 24px)}
-}
+html.h5,html.h5 body{overscroll-behavior:none}
+html.h5 .phone{--st:env(safe-area-inset-top,0px);--sb:env(safe-area-inset-bottom,0px)}
+html.h5 .status,html.h5 .island{display:none}
+html.h5 .wrap{padding-top:calc(var(--st) + 20px)}
+html.h5 .topbar,html.h5 .sub-h{height:calc(var(--st) + 54px);padding-top:var(--st)}
+html.h5 .subjbar{top:calc(var(--st) + 54px)}
+html.h5 .sub-body{padding-top:calc(var(--st) + 62px)}
+html.h5 .view{padding-bottom:calc(var(--sb) + 112px)}
+html.h5 .nav{bottom:calc(var(--sb) + 12px)}
+html.h5 .actbar{padding-bottom:calc(var(--sb) + 12px)}
+html.h5 .sheet{padding-bottom:calc(var(--sb) + 24px)}
