@@ -595,3 +595,18 @@ button:focus-visible{outline:2px solid var(--brand-3);outline-offset:2px}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0s!important;transition-duration:.01ms!important}
   .rise{opacity:1;transform:none}
 }
+
+/* ---------- 手机直接打开：H5 全屏，去掉模拟状态栏，改用系统安全区 ---------- */
+@media (max-width:460px){
+  html,body{overscroll-behavior:none}
+  .phone{--st:env(safe-area-inset-top,0px);--sb:env(safe-area-inset-bottom,0px);height:100vh;height:100dvh}
+  .status,.island{display:none}
+  .wrap{padding-top:calc(var(--st) + 20px)}
+  .topbar,.sub-h{height:calc(var(--st) + 54px);padding-top:var(--st)}
+  .subjbar{top:calc(var(--st) + 54px)}
+  .sub-body{padding-top:calc(var(--st) + 62px)}
+  .view{padding-bottom:calc(var(--sb) + 112px)}
+  .nav{bottom:calc(var(--sb) + 12px)}
+  .actbar{padding-bottom:calc(var(--sb) + 12px)}
+  .sheet{padding-bottom:calc(var(--sb) + 24px)}
+}
